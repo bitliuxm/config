@@ -1,0 +1,109 @@
+set nobackup  
+set nowb  
+set noswapfile
+
+set number
+"set nowrap
+
+set showmatch
+set mat=2
+
+set hlsearch
+set smartcase
+set ignorecase
+set incsearch 
+"set mouse=a
+
+syntax enable  
+syntax on
+
+colorscheme darkblue
+
+set cmdheight=2  
+set rulerformat=%20(%2*%<%f%=\ %m%r\ %3l\ %c\ %p%%%)  
+"set statusline=%F%m%r%h%w\[POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")}  
+"set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P  
+set laststatus=2
+
+"set cursorline  
+
+" 显示tab和空格
+set list
+" 设置tab和空格样式
+set lcs=tab:\|\ ,nbsp:%,trail:-
+" 设定行首tab为灰色
+highlight LeaderTab guifg=#666666
+" 匹配行首tab
+match LeaderTab /^\t/
+
+"set foldenable  
+"set foldmethod=syntax  
+"set foldcolumn=4 
+"set tabstop=4 
+"set expandtab
+
+
+   set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+   set termencoding=utf-8
+   set encoding=utf-8
+
+set gfw=Yahei_Mono:h10:cGB2312
+
+
+" start of vundle
+
+set nocompatible                " be iMproved
+filetype off                    " required!
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+"my Bundle here:
+"
+" original repos on github
+"Bundle 'kien/ctrlp.vim'
+"Bundle 'sukima/xmledit'
+"Bundle 'sjl/gundo.vim'
+"Bundle 'jiangmiao/auto-pairs'
+"Bundle 'klen/python-mode'
+"Bundle 'Valloric/ListToggle'
+"Bundle 'SirVer/ultisnips'
+"Bundle 'Valloric/YouCompleteMe'
+"Bundle 'scrooloose/syntastic'
+"Bundle 't9md/vim-quickhl'
+Bundle 'Lokaltog/vim-powerline'
+"Bundle 'scrooloose/nerdcommenter'
+"..................................
+" vim-scripts repos
+"Bundle 'YankRing.vim'
+"Bundle 'vcscommand.vim'
+"Bundle 'ShowPairs'
+"Bundle 'SudoEdit.vim'
+"Bundle 'EasyGrep'
+"Bundle 'VOoM'
+"Bundle 'VimIM'
+
+
+"..................................
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+"......................................
+filetype plugin indent off
+
+
+
+"let g:Powerline_symbols = 'fancy'
+"set laststatus=2
+"set noshowmode
+"set t_Co=256
+
+set guifont=PowerlineSymbols\ for\ Powerline
+set nocompatible
+set laststatus=2
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+let Powerline_symbols='compatible'
+
+

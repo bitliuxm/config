@@ -1,0 +1,2 @@
+source ~/.bashrc
+[ -f /home7/bitliu/local/bin/zsh ] && exec /home7/bitliu/local/bin/zsh -l
