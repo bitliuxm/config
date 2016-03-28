@@ -1,2 +1,2 @@
 source ~/.bashrc
-[ -f /home7/bitliu/local/bin/zsh ] && exec /home7/bitliu/local/bin/zsh -l
+[ -f $HOME/local/bin/zsh ] && exec $HOME/local/bin/zsh -l
