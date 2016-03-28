@@ -54,6 +54,18 @@ ENABLE_CORRECTION="false"
 
 # User configuration
 
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+# for gnu coreutils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+export PATH="/usr/local/Cellar/vim/7.4.1589/bin:$PATH"
+
+
+# brew install binutils
+# /usr/local/Cellar/binutils/2.25.1
+
 source $HOME/.bashrc
 export PATH="$HOME/local/bin:${PATH}"
 export MANPATH="$HOME/local/share/man:${MANPATH}"
@@ -62,6 +74,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+export PATH="$HOME/local/bin:${PATH}"
+export MANPATH="$HOME/local/share/man:${MANPATH}"
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
