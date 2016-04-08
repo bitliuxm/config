@@ -141,3 +141,8 @@ bindkey '^[[4~' end-of-line
 
 #for word split
 setopt shwordsplit
+
+# for extend bash pattern
+setopt extended_glob
+#rm -- ^*.dmg
+#rm -- ^*.(dmg|txt)
