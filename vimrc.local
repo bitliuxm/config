@@ -1,5 +1,5 @@
 
-filetype plugin indent off
+#filetype plugin indent off
 set mouse=
 set noautoindent
 let g:AutoPairs={}
