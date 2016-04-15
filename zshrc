@@ -70,13 +70,11 @@ source $HOME/.bashrc
 export PATH="$HOME/local/bin:${PATH}"
 export MANPATH="$HOME/local/share/man:${MANPATH}"
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$HOME/local/bin:${PATH}"
-export MANPATH="$HOME/local/share/man:${MANPATH}"
 
 
 # You may need to manually set your language environment
@@ -136,6 +134,7 @@ a(){
 
 bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
+bindkey '\e[3~' delete-char
 
 #a
 
@@ -146,3 +145,6 @@ setopt shwordsplit
 setopt extended_glob
 #rm -- ^*.dmg
 #rm -- ^*.(dmg|txt)
+#
+stty erase "^H"
+
