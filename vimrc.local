@@ -1,5 +1,7 @@
 "filetype plugin indent off
-set mouse=
+set smartindent
+set mouse=n
+"set mouse=v
 set noautoindent
 let g:AutoPairs={}
 let g:showmarks_marks = "1234567890abcdef...." 

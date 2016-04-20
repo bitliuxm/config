@@ -1,5 +1,5 @@
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/bash2bin:$PATH"
+#export PATH="$HOME/bash2bin:$PATH"
 #export PS1="\n\u@\h:\w \$(vcprompt -f '%b%m%u')\n>"
 
 alias gs="git status"
