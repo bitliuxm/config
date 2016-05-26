@@ -147,4 +147,4 @@ setopt extended_glob
 #rm -- ^*.(dmg|txt)
 #
 stty erase "^H"
-
+#alias grep='igrep'
