@@ -1,0 +1,21 @@
+[user]
+	name = Bit.Liu
+	email = bitliuxm@gmail.com
+[color]
+	ui = auto
+[commit]
+	template = /home/bit/.commit_template
+[alias]
+	d = diff
+	s = status
+[i18n]
+	commitencoding = utf-8
+	logoutputencoding = utf-8
+[clangformat]
+	extensions = c,h
+	style = file
+	binary = /home/bit/workspace/llvmbuild/bin/clang-format
+[core]
+	autocrlf = input
+	editor = vim
+	quotepath = false
