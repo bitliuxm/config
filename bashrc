@@ -28,3 +28,5 @@ alias vi='vimfunc(){ echo $1 ; if [[ "$1" =~ ^.*:([[:digit:]]).* ]]; then var=`e
 
 alias vii='vim_grep_index'
 alias gclc='var=`pwd` ; git-clone `basename ${var}`'
+alias vilog='vi `ls | grep "log.*txt" | sort -r | head -1`'
+#ls ~/bitwork/zl1_mp/ | grep "log.*txt" | sort - 

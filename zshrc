@@ -148,3 +148,5 @@ setopt extended_glob
 #
 stty erase "^H"
 #alias grep='igrep'
+setopt nonomatch
+
