@@ -1,0 +1,117 @@
+From b3d45f6ccce5f855fc6918030681db869d235961 Mon Sep 17 00:00:00 2001
+From: "Bit.Liu" <Bit.Liu@spreadtrum.com>
+Date: Wed, 1 Jun 2016 16:32:58 +0800
+Subject: [PATCH] change bundles
+
+---
+ .vimrc.bundles | 64 +++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 37 insertions(+), 27 deletions(-)
+
+diff --git a/.vimrc.bundles b/.vimrc.bundles
+index 997ae96..58bc8f7 100644
+--- a/.vimrc.bundles
++++ b/.vimrc.bundles
+@@ -91,7 +91,8 @@
+     " In your .vimrc.before.local file
+     " list only the plugin groups you will use
+     if !exists('g:spf13_bundle_groups')
+-        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
++        "let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'python', 'misc',]
++        let g:spf13_bundle_groups=['general', 'programming', 'python']
+     endif
+ 
+     " To override all the included bundles, add the following to your
+@@ -104,39 +105,45 @@
+             Bundle 'scrooloose/nerdtree'
+             Bundle 'altercation/vim-colors-solarized'
+             Bundle 'spf13/vim-colors'
+-            Bundle 'tpope/vim-surround'
+-            Bundle 'tpope/vim-repeat'
+-            Bundle 'rhysd/conflict-marker.vim'
+-            Bundle 'jiangmiao/auto-pairs'
+-            Bundle 'ctrlpvim/ctrlp.vim'
+-            Bundle 'tacahiroy/ctrlp-funky'
+-            Bundle 'terryma/vim-multiple-cursors'
+-            Bundle 'vim-scripts/sessionman.vim'
+-            Bundle 'matchit.zip'
++            "Bundle 'tpope/vim-surround'
++            "Bundle 'tpope/vim-repeat'
++            "Bundle 'rhysd/conflict-marker.vim'
++            "Bundle 'jiangmiao/auto-pairs'
++            "Bundle 'ctrlpvim/ctrlp.vim'
++            "Bundle 'tacahiroy/ctrlp-funky'
++            "Bundle 'terryma/vim-multiple-cursors'
++            "Bundle 'vim-scripts/sessionman.vim'
++            "Bundle 'matchit.zip'
++            "状态栏
+             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
+-                Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
++               Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+             elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
+-                Bundle 'Lokaltog/vim-powerline'
++               Bundle 'Lokaltog/vim-powerline'
+             else
+-                Bundle 'vim-airline/vim-airline'
+-                Bundle 'vim-airline/vim-airline-themes'
++               Bundle 'vim-airline/vim-airline'
++               Bundle 'vim-airline/vim-airline-themes'
+             endif
+             Bundle 'powerline/fonts'
++            "在状态栏上显示buffer list
+             Bundle 'bling/vim-bufferline'
+-            Bundle 'easymotion/vim-easymotion'
++            "Bundle 'easymotion/vim-easymotion'
++            "目录树
+             Bundle 'jistr/vim-nerdtree-tabs'
+-            Bundle 'flazz/vim-colorschemes'
++            "Bundle 'flazz/vim-colorschemes'
++            "undo 树
+             Bundle 'mbbill/undotree'
++            "缩进显示
+             Bundle 'nathanaelkane/vim-indent-guides'
+             if !exists('g:spf13_no_views')
+                 Bundle 'vim-scripts/restore_view.vim'
+             endif
++            "在侧栏显示diff
+             Bundle 'mhinz/vim-signify'
+-            Bundle 'tpope/vim-abolish.git'
+-            Bundle 'osyo-manga/vim-over'
+-            Bundle 'kana/vim-textobj-user'
+-            Bundle 'kana/vim-textobj-indent'
+-            Bundle 'gcmt/wildfire.vim'
++            "Bundle 'tpope/vim-abolish.git'
++            "Bundle 'osyo-manga/vim-over'
++            "Bundle 'kana/vim-textobj-user'
++            "Bundle 'kana/vim-textobj-indent'
++            "Bundle 'gcmt/wildfire.vim'
+         endif
+     " }
+ 
+@@ -152,15 +159,18 @@
+     " General Programming {
+         if count(g:spf13_bundle_groups, 'programming')
+             " Pick one of the checksyntax, jslint, or syntastic
++            "语法检查
+             Bundle 'scrooloose/syntastic'
+-            Bundle 'tpope/vim-fugitive'
+-            Bundle 'mattn/webapi-vim'
+-            Bundle 'mattn/gist-vim'
++            "Bundle 'tpope/vim-fugitive'
++            "Bundle 'mattn/webapi-vim'
++            "Bundle 'mattn/gist-vim'
++            "快速注释
+             Bundle 'scrooloose/nerdcommenter'
+-            Bundle 'tpope/vim-commentary'
+-            Bundle 'godlygeek/tabular'
+-            Bundle 'luochen1990/rainbow'
++            "Bundle 'tpope/vim-commentary'
++            "Bundle 'godlygeek/tabular'
++            "Bundle 'luochen1990/rainbow'
+             if executable('ctags')
++                "tag 列表
+                 Bundle 'majutsushi/tagbar'
+             endif
+         endif
+-- 
+1.9.1
+
