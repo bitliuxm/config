@@ -1,0 +1,9 @@
+{
+            "method": "aes-128-cfb",
+            "password": "Liu2069788",
+            "remarks": "sg",
+            "server": "45.125.195.13",
+            "server_port": 28129,
+    "localPort": 1080,
+    "shareOverLan": false
+}

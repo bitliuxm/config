@@ -1,0 +1,8 @@
+{
+"method": "aes-128-cfb",
+            "password": "Liu2069788",
+            "remarks": "jp0",
+            "server": "106.185.52.15",
+            "server_port": 28129,
+    "localPort": 1080
+}
