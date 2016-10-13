@@ -24,7 +24,7 @@ alias mmj='mm -j23'
 
 #alias mm='noglob mm'
 alias repoi='repo init -u gitadmin@gitsrv01.spreadtrum.com:android/platform/manifest -b'
-alias vi='vimfunc(){ echo $1 ; if [[ "$1" =~ ^.*:([[:digit:]]).* ]]; then var=`echo "$1" | sed "s/:\([[:digit:]]\)/ +\1/g" `; vim "${var}" ; else vim "$*" ;  fi } ; vimfunc'
+alias vi='vimfunc(){ echo $1 ; if [[ "$1" =~ ^.*:([[:digit:]]).* ]]; then var=`echo "$1" | sed "s/:\([[:digit:]]\)/ +\1/g" `; vim ${var} ; else vim "$*" ;  fi } ; vimfunc'
 
 alias vii='vim_grep_index'
 alias gclc='var=`pwd` ; git-clone `basename ${var}`'
