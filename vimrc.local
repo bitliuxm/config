@@ -3,5 +3,7 @@ set smartindent
 set mouse=n
 "set mouse=v
 set noautoindent
+"disable fold
+set foldmethod=manual
 let g:AutoPairs={}
 let g:showmarks_marks = "1234567890abcdef...." 
