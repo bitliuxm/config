@@ -1,14 +1,5 @@
-From b3d45f6ccce5f855fc6918030681db869d235961 Mon Sep 17 00:00:00 2001
-From: "Bit.Liu" <Bit.Liu@spreadtrum.com>
-Date: Wed, 1 Jun 2016 16:32:58 +0800
-Subject: [PATCH] change bundles
-
----
- .vimrc.bundles | 64 +++++++++++++++++++++++++++++++++-------------------------
- 1 file changed, 37 insertions(+), 27 deletions(-)
-
 diff --git a/.vimrc.bundles b/.vimrc.bundles
-index 997ae96..58bc8f7 100644
+index 997ae96..207c35b 100644
 --- a/.vimrc.bundles
 +++ b/.vimrc.bundles
 @@ -91,7 +91,8 @@
@@ -17,7 +8,7 @@ index 997ae96..58bc8f7 100644
      if !exists('g:spf13_bundle_groups')
 -        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
 +        "let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'python', 'misc',]
-+        let g:spf13_bundle_groups=['general', 'programming', 'python']
++        let g:spf13_bundle_groups=['general', 'programming']
      endif
  
      " To override all the included bundles, add the following to your
@@ -112,6 +103,3 @@ index 997ae96..58bc8f7 100644
                  Bundle 'majutsushi/tagbar'
              endif
          endif
--- 
-1.9.1
-
