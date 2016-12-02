@@ -152,3 +152,4 @@ stty erase "^?"
 #alias grep='igrep'
 setopt nonomatch
 
+export LESS="-Ri"
