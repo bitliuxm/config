@@ -7,3 +7,5 @@ set noautoindent
 set foldmethod=manual
 let g:AutoPairs={}
 let g:showmarks_marks = "1234567890abcdef...." 
+"colorscheme molokai
+hi Comment ctermfg=6;

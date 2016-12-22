@@ -150,6 +150,10 @@ stty erase "^H"
 stty erase "^?"
 
 #alias grep='igrep'
+
 setopt nonomatch
 
 export LESS="-Ri"
+
+setopt inc_append_history
+
