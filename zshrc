@@ -67,6 +67,8 @@ export PATH="/usr/local/Cellar/vim/7.4.1589/bin:$PATH"
 # /usr/local/Cellar/binutils/2.25.1
 
 source $HOME/.bashrc
+source $HOME/bitwork/integrator_tools/envsetup.sh
+export PATH="$HOME/bitwork/integrator_tools:${PATH}"
 export PATH="$HOME/local/bin:${PATH}"
 export MANPATH="$HOME/local/share/man:${MANPATH}"
 
