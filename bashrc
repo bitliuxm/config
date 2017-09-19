@@ -46,3 +46,6 @@ alias log='logfun(){ set -x ; LOG=$PWD/log.$(date +%m%d%H%M%S).txt ; if [ -z "$*
 alias vi='vimfunc(){set -x ;  echo $1 ; if [[ "$1" =~ ^.*:([[:digit:]]).* ]]; then var=`echo "$1" | sed "s/:\([[:digit:]]\)/ +\1/g" `; echo "${var}" ; vim ${var} ; else echo "$*" ; vim "$*" ;  fi ; set +x } ; vimfunc'
 alias slashsed='slash_fun(){ set -x ; echo -E "$*" | sed -e '"'"'s/\\/\//g'"'"' ; set +x } ;  slash_fun  '
 
+#alias tmux='alwaysd(){ set -x ; if [ "attach" = "$1" ]; then options = "$*" ; options2 = cat ${options} | sed "s/tmux attach/tmux attach -d/g" ; echo "$opetions2" ; fi ; set +x } ; alwaysd'
+alias tmux='alwaysd(){ set -x ; if [ "attach" = "$1" ]; then para="$*" ; echo "$para" ; para2=`echo $para | sed "s/attach/attach -d/g"` ; tmux $para2 ; fi ; set +x } ; alwaysd'
+
