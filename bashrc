@@ -37,15 +37,17 @@ alias mmj='mm -j23'
 
 alias vii='vim_grep_index'
 #alias gclc='var=`pwd` ; git-clone `basename ${var}`'
-alias vilog='vi `ls | grep "log.*txt" | sort -r | head -1`'
+#alias vilog='vi `ls | grep "log.*txt" | sort -r | head -1`'
 
 ## under debugging
 
-alias makej='makefun(){ set -x ; LOG=$PWD/log.$(date +%m%d%H%M%S).txt ; if [ -z "$*" ] ; then echo "target:null" ;  make -j 8  2>&1 | tee "$LOG" ; else echo "target:" "$*" ; bash -c "make -j 8 $*" 2>&1 | tee "$LOG" ; fi ; set +x } ; makefun'
-alias log='logfun(){ set -x ; LOG=$PWD/log.$(date +%m%d%H%M%S).txt ; if [ -z "$*" ] ; then echo "target:null" ; else echo "target:" "$*" ; bash -c "$*" 2>&1 | tee "$LOG" ; fi ; set +x } ; logfun'
+#alias makej='makefun(){ set -x ; LOG=$PWD/log.$(date +%m%d%H%M%S).txt ; if [ -z "$*" ] ; then echo "target:null" ;  make -j 8  2>&1 | tee "$LOG" ; else echo "target:" "$*" ; bash -c "make -j 8 $*" 2>&1 | tee "$LOG" ; fi ; set +x } ; makefun'
+#alias log='logfun(){ set -x ; LOG=$PWD/log.$(date +%m%d%H%M%S).txt ; if [ -z "$*" ] ; then echo "target:null" ; else echo "target:" "$*" ; bash -c "$*" 2>&1 | tee "$LOG" ; fi ; set +x } ; logfun'
 alias vi='vimfunc(){set -x ;  echo $1 ; if [[ "$1" =~ ^.*:([[:digit:]]).* ]]; then var=`echo "$1" | sed "s/:\([[:digit:]]\)/ +\1/g" `; echo "${var}" ; vim ${var} ; else echo "$*" ; vim "$*" ;  fi ; set +x } ; vimfunc'
 alias slashsed='slash_fun(){ set -x ; echo -E "$*" | sed -e '"'"'s/\\/\//g'"'"' ; set +x } ;  slash_fun  '
 
 #alias tmux='alwaysd(){ set -x ; if [ "attach" = "$1" ]; then options = "$*" ; options2 = cat ${options} | sed "s/tmux attach/tmux attach -d/g" ; echo "$opetions2" ; fi ; set +x } ; alwaysd'
-alias tmux='alwaysd(){ set -x ; if [ "attach" = "$1" ]; then para="$*" ; echo "$para" ; para2=`echo $para | sed "s/attach/attach -d/g"` ; tmux $para2 ; fi ; set +x } ; alwaysd'
+#alias tmux='alwaysd(){ set -x ; if [ "attach" = "$1" ]; then para="$*" ; echo "$para" ; para2=`echo $para | sed "s/attach/attach -d/g"` ; tmux $para2 ; fi ; set +x } ; alwaysd'
+
+source /home/bit/.bashrc_local
 
