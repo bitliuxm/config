@@ -4,17 +4,16 @@
 [color]
 	ui = auto
 [commit]
-	template = /home/bit/.commit_template
 [alias]
 	d = diff
 	s = status
 [i18n]
 	commitencoding = utf-8
-	logoutputencoding = utf-8
+	logoutputencoding = gbk
 [clangformat]
-	extensions = c,h
+	extensions = c,h,cpp
 	style = file
-	binary = /home/bit/workspace/llvmbuild/bin/clang-format
+	binary = /usr/bin/clang-format
 [core]
 	autocrlf = input
 	editor = vim
@@ -23,3 +22,8 @@
 	;proxy = socks5://127.0.0.1:1080
 ;[https]
 	;proxy = socks5://127.0.0.1:1080
+[git-p4]
+	user = bitliu
+	password = marvellbitliu
+	port = perforce.marvell.com:1666
+	client = bitliu_perforce_16661
