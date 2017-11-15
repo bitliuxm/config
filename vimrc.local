@@ -1,13 +1,42 @@
-"filetype plugin indent off
-set smartindent
+
 set mouse=n
 "set mouse=v
-set noautoindent
+
 "disable fold
-set foldmethod=manual
-let g:AutoPairs={}
+"set foldmethod=manual
+
+"let g:AutoPairs={}
+
 let g:showmarks_marks = "1234567890abcdef...." 
-"colorscheme molokai
-hi Comment ctermfg=6;
+
 set tags=tags;/
+
+""" for indent
+set smartindent
+"use actual tab character 
 set noexpandtab
+"don't use actual tab character 
+"set expandtab
+
+"" disable spell for spell highlight
+set nospell
+
+"" airline color
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+"autocmd FileType vim set nospell
+"autocmd BufNewFile,BufReadPost,FilterReadPost,FileReadPost  * set nospell
+
+"" vim color
+set background=dark
+colorscheme solarized
+
+"" indent guide color"
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd                         guibg=red  ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
+""display relative number and current line number at the same time
+set nonu
+set number relativenumber
+

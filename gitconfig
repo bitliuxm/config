@@ -13,11 +13,12 @@
 [clangformat]
 	extensions = c,h,cpp
 	style = file
-	binary = /usr/bin/clang-format
+	binary = /usr/bin/clang-format-4.0
 [core]
 	autocrlf = input
 	editor = vim
 	quotepath = false
+	excludesfile = /home/bit/.gitignore_global
 ;[http]
 	;proxy = socks5://127.0.0.1:1080
 ;[https]
@@ -26,4 +27,4 @@
 	user = bitliu
 	password = marvellbitliu
 	port = perforce.marvell.com:1666
-	client = bitliu_perforce_16661
+	client = bitliu_perforce_16660

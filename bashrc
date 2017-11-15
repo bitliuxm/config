@@ -5,10 +5,13 @@ export CRON_LOG="/home/bit/cron.log"
 #export PS1="\n\u@\h:\w \$(vcprompt -f '%b%m%u')\n>"
 
 alias gs="git status"
+# ignore untracked file
 alias gsn="git status -uno"
 #alias gp="git-push"
 #alias gcl="git-clone"
 alias ga="git add"
+# ignore untracked file
+alias gau="git add -u"
 #alias gd="git diff"
 alias gd="git --no-pager diff"
 alias gdp="git diff"
@@ -50,18 +53,22 @@ alias vii='vim_grep_index'
 
 ## under debugging
 
+# for googlesource repo mirror
+# usage: qinghua git clone ... | qinghua repo init ...
+qinghua(){ set -x ; if [[ "$*" =~ ^git.*  ]] ; then qinghua_cmd=`echo "$*" | sed 's/android.googlesource.com/aosp.tuna.tsinghua.edu.cn/'` ; elif [[ "$*" =~ ^repo.*  ]] ; then qinghua_cmd=`echo "$*" "--repo-url=https://gerrit-google.tuna.tsinghua.edu.cn/git-repo"` ; fi; $qinghua_cmd ; set +x }
 #alias makej='makefun(){ set -x ; LOG=$PWD/log.$(date +%m%d%H%M%S).txt ; if [ -z "$*" ] ; then echo "target:null" ;  make -j 8  2>&1 | tee "$LOG" ; else echo "target:" "$*" ; bash -c "make -j 8 $*" 2>&1 | tee "$LOG" ; fi ; set +x } ; makefun'
 #alias log='logfun(){ set -x ; LOG=$PWD/log.$(date +%m%d%H%M%S).txt ; if [ -z "$*" ] ; then echo "target:null" ; else echo "target:" "$*" ; bash -c "$*" 2>&1 | tee "$LOG" ; fi ; set +x } ; logfun'
 #alias vi='vimfunc(){set -x ;  echo $1 ; if [[ "$1" =~ ^.*:([[:digit:]]).* ]]; then var=`echo "$1" | sed "s/:\([[:digit:]]\)/ +\1/g" `; echo "${var}" ; vim ${var} ; else echo "$*" ; vim "$*" ;  fi ; set +x } ; vimfunc'
-alias vi='vimfunc(){set -x ;  echo 1:$1 2:$2 ; if [ -z "$2" ]; then  if [[ "$1" =~ ^.*:([[:digit:]]).* ]]; then var=`echo "$1" | sed "s/:\([[:digit:]]\)/ +\1/g" `; echo "${var}" ; vim ${var} ; else echo "$*" ; vim $* ;  fi ;  else vim $* ; fi;  set +x } ; vimfunc'
+alias vi_debug='vimfunc(){ set -x ;  echo 1:$1 2:$2 ; if [ -z "$2" ]; then  if [[ "$1" =~ ^.*:([[:digit:]]).* ]]; then var=`echo "$1" | sed "s/:\([[:digit:]]\)/ +\1/g" `; echo "${var}" ; vim ${var} ; else echo "$*" ; vim $* ;  fi ;  else vim $* ; fi;  set +x } ; vimfunc'
+alias vi='vimfunc(){ if [ -z "$2" ]; then  if [[ "$1" =~ ^.*:([[:digit:]]).* ]]; then var=`echo "$1" | sed "s/:\([[:digit:]]\)/ +\1/g" `; vim ${var} ; else vim $* ;  fi ;  else vim $* ; fi; } ; vimfunc'
 alias slashsed='slash_fun(){ set -x ; echo -E "$*" | sed -e '"'"'s/\\/\//g'"'"' ; set +x } ;  slash_fun  '
 
 #alias tmux='alwaysd(){ set -x ; if [ "attach" = "$1" ]; then options = "$*" ; options2 = cat ${options} | sed "s/tmux attach/tmux attach -d/g" ; echo "$opetions2" ; fi ; set +x } ; alwaysd'
 #alias tmux='alwaysd(){ set -x ; if [ "attach" = "$1" ]; then para="$*" ; echo "$para" ; para2=`echo $para | sed "s/attach/attach -d/g"` ; tmux $para2 ; fi ; set +x } ; alwaysd'
 
-mv ~/.zsh_history ~/.zsh_history_bad
-strings ~/.zsh_history_bad > ~/.zsh_history
-fc -R ~/.zsh_history
-
-source /home/bit/.bashrc_local
+# for local configure load
+if [ -e /home/bit/.bashrc_local ]
+then
+	source /home/bit/.bashrc_local
+fi
 

@@ -5,12 +5,13 @@ BasedOnStyle: LLVM
 ## 缩进宽度
 IndentWidth: 4
 UseTab: Never
+#UseTab: ForContinuationAndIndentation
 ## 花括号的换行方式(Attach，Stroustrup, Allman-所有大括号都另起一行)
 BreakBeforeBraces: Linux
 ## 支持一行的if
 AllowShortIfStatementsOnASingleLine: false
 ## switch的case缩进
-IndentCaseLabels: true
+IndentCaseLabels: false
 
 ## 连续的声明的变量名字对齐
 AlignConsecutiveDeclarations: true
@@ -19,8 +20,15 @@ AlignConsecutiveDeclarations: true
 AlignConsecutiveAssignments: true
 
 # 指针的* 对齐在右侧
+#DerivePointerAlignment: true
 DerivePointerAlignment: false
 PointerAlignment: Right
+
+# 小括号里加空格
+SpacesInParentheses: false
+
+# 下一行的起始indent 8
+ContinuationIndentWidth: 4
 
 # other options
 
@@ -40,8 +48,11 @@ PointerAlignment: Right
 # for 21 inch beyond compare usage
 ColumnLimit: 106
 
-## 注释对齐
-#AlignTrailingComments: true
+# 注释对齐
+AlignTrailingComments: true
+
+# 调整前后行comments的组合
+ReflowComments: true
 
 ## 括号后加空格
 #SpaceAfterCStyleCast: true
