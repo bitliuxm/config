@@ -9,8 +9,6 @@ set mouse=n
 
 let g:showmarks_marks = "1234567890abcdef...." 
 
-set tags=tags;/
-
 """ for indent
 set smartindent
 "use actual tab character 
@@ -39,4 +37,66 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 ""display relative number and current line number at the same time
 set nonu
 set number relativenumber
+
+" youcompleteme
+"let g:ycm_extra_conf_globlist = ['~/.vim/bundle/YouCompleteMe/ycmd/cpp/ycm/*','!~/*']
+"let g:ycm_global_ycm_extra_conf = '/home/bit/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/home/bit/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 1
+let g:easytags_async = 1
+"let g:easytags_file = '~/.vim/tags'
+
+"set tags=./.git/tags;,tags;
+"set tags=./tags;,tags;
+let g:easytags_dynamic_files = 2
+
+" must set to 0 to avoid misc error
+let g:easytags_by_filetype = 0
+let g:easytags_autorecurse = 1
+" auto highlight is very slow
+let g:easytags_auto_highlight = 0
+" Update & highlight tags immediately after save
+"let g:easytags_events = ['BufWritePost']
+
+"let g:easytags_languages = {
+"\   'c': {
+"\     'cmd': g:easytags_cmd,
+"\	    'args': [],
+"\	    'fileoutput_opt': '-f',
+"\	    'stdout_opt': '-f-',
+"\	    'recurse_flag': '-R'
+"\   }
+"\   'bash': {
+"\     'cmd': g:easytags_cmd,
+"\	    'args': [],
+"\	    'fileoutput_opt': '-f',
+"\	    'stdout_opt': '-f-',
+"\	    'recurse_flag': '-R'
+"\   }
+"\}
+
+" change the tags path for easytag
+function! AddTagsPath()
+    " Change working dir to the current file
+    cd %:p:h
+    " Set 'gitdir' to be the folder containing .git
+    let gitdir=system("git rev-parse --show-toplevel | tr \"\n\" \"/\" ")
+    " See if the command output starts with 'fatal' (if it does, not in a git repo)
+    let isnotgitdir=matchstr(gitdir, '^fatal:.*')
+    " If it empty, there was no error. Let's cd
+    if empty(isnotgitdir)
+        let newtags = gitdir . ".git/tags,./tags;,~/.vim/tags"
+        exec "set " . "tags" . "=" . newtags
+    endif
+endfunction
+
+autocmd BufNewFile,BufReadPost,FilterReadPost,FileReadPost  * call  AddTagsPath()
+
+" diable parse for makefile
+" cause the src/wlan_src/Makefile is too large and too slow to open
+let g:tagbar_type_make = {
+            \ 'kinds':[
+                \ 't:targets'
+            \ ]
+\}
 
