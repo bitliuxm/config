@@ -143,10 +143,10 @@ bindkey '\e[3~' delete-char
 setopt shwordsplit
 
 # for extend bash pattern
-setopt extended_glob
 #rm -- ^*.dmg
 #rm -- ^*.(dmg|txt)
-#
+setopt extended_glob
+
 stty erase "^H"
 stty erase "^?"
 

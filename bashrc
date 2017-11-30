@@ -1,4 +1,4 @@
-export PATH="$HOME/bin:$PATH"
+export PATH="/home/bit/workspace/bg5:$HOME/bin:$PATH"
 export EDITOR="/usr/bin/vim"
 export CRON_LOG="/home/bit/cron.log"
 #export PATH="$HOME/bash2bin:$PATH"

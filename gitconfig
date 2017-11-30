@@ -13,7 +13,7 @@
 [clangformat]
 	extensions = c,h,cpp
 	style = file
-	binary = /usr/bin/clang-format-4.0
+	binary = /usr/bin/clang-format-3.8
 [core]
 	autocrlf = input
 	editor = vim

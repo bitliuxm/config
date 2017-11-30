@@ -1,0 +1,64 @@
+# for history search
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+# for increament history
+shopt -s histappend
+alias -='cd -'
+alias ...=../..
+alias ....=../../..
+alias .....=../../../..
+alias ......=../../../../..
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+alias _=sudo
+alias afind='ack-grep -il'
+alias change='change_wcn_product `gettop`'
+alias d='dirs -v | head -10'
+alias ga='git add'
+alias gam='git commit --amend --no-edit'
+alias gau='git add -u'
+alias gb='git branch'
+alias gbl='git blame'
+alias gbr='gb -r | head -3'
+alias gc='git commit'
+alias gco='git checkout'
+alias gd='git --no-pager diff'
+alias gdp='git diff'
+alias gfp='git format-patch -1'
+alias gl='git log --oneline --graph --decorate'
+alias glo='git --no-pager log --oneline --graph'
+alias glu='git log -u'
+alias gluf='git --no-pager log --pretty="%H,%ci,%Cred%ae,%Cgreen%s"'
+alias gluid='_(){ glu $1 | grep "Change-Id" | head -1 }; _'
+alias gpwd='git rev-parse --git-dir'
+alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias grst='curdir=`pwd` ; cd `git rev-parse --git-dir` ; cd .. ; git checkout . ; git clean -df ; cd $curdir'
+alias gs='git status'
+alias gsn='git status -uno'
+alias gwd='git rev-parse --git-dir'
+alias history='fc -l 1'
+alias l='ls -lah'
+alias la='ls -lAh'
+alias ll='ls -lh'
+alias ls='ls --color=tty'
+alias lsa='ls -lah'
+alias md='mkdir -p'
+alias mmj='mm -j23'
+alias please=sudo
+alias po=popd
+alias pu=pushd
+alias rd=rmdir
+alias slashsed='slash_fun(){ set -x ; echo -E "$*" | sed -e '\''s/\\/\//g'\'' ; set +x } ;  slash_fun  '
+alias touchall='find . -name "*" -type f -print0 | xargs -n 1 --null touch'
+alias vi='vimfunc(){ if [ -z "$2" ]; then  if [[ "$1" =~ ^.*:([[:digit:]]).* ]]; then var=`echo "$1" | sed "s/:\([[:digit:]]\)/ +\1/g" `; vim ${var} ; else vim $* ;  fi ;  else vim $* ; fi; } ; vimfunc'
+alias vi_debug='vimfunc(){ set -x ;  echo 1:$1 2:$2 ; if [ -z "$2" ]; then  if [[ "$1" =~ ^.*:([[:digit:]]).* ]]; then var=`echo "$1" | sed "s/:\([[:digit:]]\)/ +\1/g" `; echo "${var}" ; vim ${var} ; else echo "$*" ; vim $* ;  fi ;  else vim $* ; fi;  set +x } ; vimfunc'
+alias vii=vim_grep_index
+alias which-command=whence
