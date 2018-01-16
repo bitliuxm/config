@@ -22,13 +22,16 @@ AlignConsecutiveAssignments: true
 # 指针的* 对齐在右侧
 #DerivePointerAlignment: true
 DerivePointerAlignment: false
-PointerAlignment: Right
+# 在左侧使得可以与乘号进行区分
+PointerAlignment: Left
 
 # 小括号里加空格
 SpacesInParentheses: false
 
 # 下一行的起始indent 8
 ContinuationIndentWidth: 4
+
+CommentPragmas: '.*[ABC][ABC][ABC].*'
 
 # other options
 

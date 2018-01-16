@@ -1,3 +1,4 @@
+" vim: set sw=4 ts=4 sts=4 et tw=78 spell:
 
 set mouse=n
 "set mouse=v
@@ -52,7 +53,8 @@ let g:easytags_dynamic_files = 2
 
 " must set to 0 to avoid misc error
 let g:easytags_by_filetype = 0
-let g:easytags_autorecurse = 1
+" must set to 0 to avoid recurse in unnecessary folder, cause system slow
+let g:easytags_autorecurse = 0
 " auto highlight is very slow
 let g:easytags_auto_highlight = 0
 " Update & highlight tags immediately after save
@@ -75,6 +77,8 @@ let g:easytags_auto_highlight = 0
 "\   }
 "\}
 
+"unset tags
+
 " change the tags path for easytag
 function! AddTagsPath()
     " Change working dir to the current file
@@ -90,7 +94,15 @@ function! AddTagsPath()
     endif
 endfunction
 
-autocmd BufNewFile,BufReadPost,FilterReadPost,FileReadPost  * call  AddTagsPath()
+"autocmd BufNewFile,BufReadPost,FilterReadPost,FileReadPost  * call  AddTagsPath()
+
+        set tags=./tags;/
+
+        " Make tags placed in .git/tags file available in all levels of a repository
+        let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
+        if gitroot != ''
+            let &tags = gitroot . '/.git/tags' . ',' . &tags
+        endif
 
 " diable parse for makefile
 " cause the src/wlan_src/Makefile is too large and too slow to open

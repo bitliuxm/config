@@ -118,5 +118,7 @@ UnBundle 'vim-scripts/sessionman.vim'
 " slow when open big file
 " If git is the only version control system you use, I suggest having a look at vim-gitgutter.
 UnBundle 'mhinz/vim-signify'
+"windows management
+Bundle "spolu/dwm.vim"
 
 
