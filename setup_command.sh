@@ -233,8 +233,10 @@ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.default
 if [ -e "smb.conf" ]
 then
 # for user != bit , need a replace
-sed -i 's/bit/$USER/g' smb.conf
+sed -i "s/bit/$USER/g" smb.conf
 sudo cp smb.conf /etc/samba/smb.conf
+# restore the git folder
+sed -i "s/$USER/bit/g" smb.conf
 else
 echo "smb.conf is not found in current folder"
 sleep 5
