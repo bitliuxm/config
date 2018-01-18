@@ -17,9 +17,11 @@ d: default = basic + vim + zsh + tmux
 b: basic
 v: vim support
 s: add ss and tsock support
-h: host support
+#h: host support  // removed
 z: zsh and oh my zsh support
 t: tmux
+# tmux plugins manager(tpm) need to be placed under "run '~/.tmux/plugins/tpm/tpm'"
+# and then [prefix + I] to install all plugins in .tmux.conf
 p: python and pip app(bypy markdown) support
 m: misc support // all others
 +--------------------------------------------------------------+
@@ -46,7 +48,7 @@ EOF
                 VIM_SPF13_SUPPORT=1
         ;;
       "h")
-		HOST_SUPPORT=1
+		#HOST_SUPPORT=1
         ;;
       "z")
 		ZSH_OH_SUPPORT=1
@@ -131,7 +133,7 @@ if [ -n "$HOST_SUPPORT$ALL" ]
 then
 # try to fetch the github
 mkdir -p ~/workspace/github/
-git clone https://git.coding.net/scaffrey/hosts.git ~/workspace/github/hosts
+git clone https://github.com/googlehosts/hosts.git ~/workspace/github/hosts
 sudo cp /etc/hosts  /etc/hosts.default
 sudo cp ~/workspace/github/hosts/hosts-files/hosts /etc/hosts
 #hosts can not use ln
@@ -146,6 +148,20 @@ then
 git clone https://github.com/bitliuxm/bash_script.git ~/workspace/github/bash_script
 git clone https://github.com/bitliuxm/config.git ~/workspace/github/config
 git clone https://github.com/powerline/fonts.git ~/workspace/github/fonts
+# can not use git protocol until the ssh_pub is set in github.com
+#git clone git@github.com:bitliuxm/bash_script.git ~/workspace/github/bash_script
+#git clone git@github.com:bitliuxm/config.git ~/workspace/github/config
+#git clone git@github.com:powerline/fonts.git ~/workspace/github/fonts
+
+cd ~/.ssh
+key-keygen
+touch authorized_keys
+touch config
+cd - 
+
+# change to git protocol
+sed -i 's_https://github.com/bitliuxm/config.git_git@github.com:bitliuxm/config.git_g' ~/workspace/github/config/.git/config
+sed -i 's_https://github.com/bitliuxm/bash\_script.git_git@github.com:bitliuxm/bash\_script.git_g' ~/workspace/github/bash_script/.git/config
 
 # make ln for all script
 mkdir -p ~/bin
@@ -161,8 +177,7 @@ fi
 if [ -n "$TMUX_SUPPORT$ALL" ]
 then
 sudo apt-get install -y tmux
-git clone https://github.com/bitliuxm/tmux-config.git ~/workspace/github/tmux-config
-ln -sf ~/workspace/github/tmux-config/.tmux.conf ~/.tmux.conf
+ln -sf ~/workspace/github/config/.tmux.conf ~/.tmux.conf
 
 # for plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
