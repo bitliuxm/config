@@ -224,8 +224,16 @@ then
 sudo apt-get install -y samba --fix-missing
 sudo apt-get install -y smbclient
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.default
-#sudo rm /etc/samba/smb.conf
-#sudo ln -sf ~/workspace1/github/config/smb.conf /etc/samba/smb.conf
+
+if [ -e "smb.conf" ]
+then
+# for user != bit , need a replace
+sed -i 's/bit/$USER/g' smb.conf
+sudo cp smb.conf /etc/samba/smb.conf
+else
+echo "smb.conf is not found in current folder"
+sleep 5
+fi
 
 # need add smb user passwd
 sudo smbpasswd -a "$USER"
