@@ -124,7 +124,7 @@ sudo apt-get install -y tsocks
 # move the sslocal@myserver.service to /lib/systemd/system and link to etc/systemd/system/multi-user.target.wants/
 sudo ln -sf /lib/systemd/system/sslocal@myserver.service /etc/systemd/system/multi-user.target.wants/sslocal@myserver.service
 #sudo rm /etc/tsocks.conf
-#sudo ln -sf /home/bit/workspace1/github/config/tsocks.conf /etc/tsocks.conf
+#sudo ln -sf ~/workspace1/github/config/tsocks.conf /etc/tsocks.conf
 fi
 
 if [ -n "$HOST_SUPPORT$ALL" ]
@@ -136,7 +136,7 @@ sudo cp /etc/hosts  /etc/hosts.default
 sudo cp ~/workspace/github/hosts/hosts-files/hosts /etc/hosts
 #hosts can not use ln
 #sudo rm /etc/hosts
-#sudo ln -sf /home/bit/workspace1/github/hosts/hosts /etc/hosts
+#sudo ln -sf ~/workspace1/github/hosts/hosts /etc/hosts
 fi
 
 
@@ -179,7 +179,7 @@ sudo apt-get install -y samba --fix-missing
 sudo apt-get install -y smbclient
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.default
 #sudo rm /etc/samba/smb.conf
-#sudo ln -sf /home/bit/workspace1/github/config/smb.conf /etc/samba/smb.conf
+#sudo ln -sf ~/workspace1/github/config/smb.conf /etc/samba/smb.conf
 
 # need add smb user passwd
 sudo smbpasswd -a "$USER"
@@ -238,7 +238,7 @@ sudo apt-get install -y policycoreutils
 
 ### cron
 # cron can not use ln
-#sudo ln -sf   /home/bit/workspace1/github/config/crontab_user  /var/spool/cron/crontabs/bit
+#sudo ln -sf   ~/workspace/github/config/crontab_user  /var/spool/cron/crontabs/bit
 
 sudo apt-get install -y openssl
 sudo apt-get install -y autoconf
