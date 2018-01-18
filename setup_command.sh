@@ -42,7 +42,8 @@ a: all, recomand use -d:dmefault
 d: default = basic + vim + zsh + tmux 
 b: basic
 v: vim support
-s: add ss and tsock support
+s: samba support
+f: fq // add ss and tsock support
 #h: host support  // removed
 z: zsh and oh my zsh support
 t: tmux
@@ -63,11 +64,15 @@ EOF
         VIM_SPF13_SUPPORT=1
 		ZSH_OH_SUPPORT=1
 		TMUX_SUPPORT=1
+		SAMBA_SUPPORT=1
         ;;
       "b")
 		BASIC=1
         ;;
       "s")
+		SAMBA_SUPPORT=1
+        ;;
+      "f")
 		SS_SUPPORT=1
         ;;
       "v")
