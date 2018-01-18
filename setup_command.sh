@@ -146,6 +146,8 @@ sudo apt-get install -y uget
 sudo apt-get install -y synergy
 sudo apt-get install -y python-dev python3-dev
 sudo apt-get install -y python2.7-dev
+sudo apt-get install -y default-jdk
+sudo apt-get install -y tomcat8
 sudo apt-get install -y openjdk-8-jdk
 sudo apt-get install -y openjdk-9-jdk
 fi
@@ -271,14 +273,12 @@ vim -c BundleUpdate -c quitall
 # if YCM not work
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
+cd -
 
 fi
 
 if [ -n "$MISC_SUPPORT$ALL" ]
 then
-
-# for bash check
-sudo apt-get install shellcheck
 
 # for android build server
 sudo apt-get install -y bc bison build-essential curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
@@ -289,8 +289,6 @@ sudo apt-get install -y policycoreutils
 ### cron
 # cron can not use ln
 #sudo ln -sf   ~/workspace/github/config/crontab_user  /var/spool/cron/crontabs/bit
-
-sudo apt-get install -y openssl
 sudo apt-get install -y autoconf
 sudo apt-get install -y docker
 
