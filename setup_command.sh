@@ -1,5 +1,32 @@
 #! /bin/bash
 
+if [ $USER = "root" ]
+then
+echo can not excute as root
+exit
+fi
+
+if [ -z "$*" ]
+then
+		cat << EOF
++--------------------------------------------------------------
+options are:
+a: all, recomand use -d:dmefault
+d: default = basic + vim + zsh + tmux 
+b: basic
+v: vim support
+s: add ss and tsock support
+h: host support
+z: zsh and oh my zsh support
+# put zsh at end, cause the sh -c will end this script
+t: tmux
+p: python and pip app(bypy markdown) support
+m: misc support // all others
++--------------------------------------------------------------+
+EOF
+exit
+fi
+
 echo "$*"
 
 # todo add args == 0 to print help
@@ -10,7 +37,6 @@ while getopts "adbvsthzm" optname
       "h")
 		cat << EOF
 +--------------------------------------------------------------
-=====please modify /etc/apt/source.list manually first=====
 options are:
 a: all, recomand use -d:dmefault
 d: default = basic + vim + zsh + tmux 
@@ -34,7 +60,7 @@ EOF
       "d")
 		DEFAULT=1
 		BASIC=1
-                VIM_SPF13_SUPPORT=1
+        VIM_SPF13_SUPPORT=1
 		ZSH_OH_SUPPORT=1
 		TMUX_SUPPORT=1
         ;;
@@ -83,9 +109,13 @@ if [ -e ./sources.list ]
 then
 sudo mv /etc/apt/sources.list /etc/apt/sources.list.backup
 sudo cp ./sources.list /etc/apt/sources.list
+else
+echo ===== source list not update =====
+echo ===== source list not update =====
+echo ===== source list not update =====
+sleep 5
 fi
 
-echo ===== source list not update =====
 
 # need to use sudo 
 sudo apt-get update
@@ -167,6 +197,7 @@ sed -i 's_https://github.com/bitliuxm/bash\_script.git_git@github.com:bitliuxm/b
 mkdir -p ~/bin
 cd ~/workspace/github/bash_script
 ~/workspace/github/bash_script/make_ln_all ~/bin
+cd -
 
 ln -sf ~/workspace/github/config/gitconfig ~/.gitconfig
 ln -sf ~/workspace/github/config/bashrc ~/.bashrc
@@ -198,17 +229,6 @@ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.default
 
 # need add smb user passwd
 sudo smbpasswd -a "$USER"
-fi
-
-if [ -n "$ZSH_OH_SUPPORT$ALL" ]
-then
-sudo apt-get install -y zsh
-# should not add sudo for chsh
-chsh -s /bin/zsh
-
-# oh my zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-ln -sf ~/workspace/github/config/zshrc ~/.zshrc
 fi
 
 if [ -n "$VIM_SPF13_SUPPORT$ALL" ]
@@ -285,5 +305,19 @@ sudo pip install bypy
 #sudo pip install pymdown-extensions
 #sudo pip install PyYAML 
 #sudo pip install Pygments
+fi
+
+# put zsh at end, cause the sh -c will end this script
+if [ -n "$ZSH_OH_SUPPORT$ALL" ]
+then
+sudo apt-get install -y zsh
+# should not add sudo for chsh
+chsh -s /bin/zsh
+
+ln -sf ~/workspace/github/config/zshrc ~/.zshrc
+
+# oh my zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+## shell will end here
 fi
 
