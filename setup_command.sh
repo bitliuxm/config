@@ -150,6 +150,7 @@ sudo apt-get install -y default-jdk
 sudo apt-get install -y tomcat8
 sudo apt-get install -y openjdk-8-jdk
 sudo apt-get install -y openjdk-9-jdk
+sudo apt-get install -y libnl-3-dev libnl-genl-3-dev
 fi
 
 if [ -n "$SS_SUPPORT$ALL" ]
@@ -185,10 +186,13 @@ then
 git clone https://github.com/bitliuxm/bash_script.git ~/workspace/github/bash_script
 git clone https://github.com/bitliuxm/config.git ~/workspace/github/config
 git clone https://github.com/powerline/fonts.git ~/workspace/github/fonts
+~/workspace/github/fonts/install.sh 
 # can not use git protocol until the ssh_pub is set in github.com
 #git clone git@github.com:bitliuxm/bash_script.git ~/workspace/github/bash_script
 #git clone git@github.com:bitliuxm/config.git ~/workspace/github/config
 #git clone git@github.com:powerline/fonts.git ~/workspace/github/fonts
+
+git clone https://github.com/git/git.git ~/workspace/github/git
 
 cd ~/.ssh
 key-keygen
