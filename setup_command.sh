@@ -6,17 +6,17 @@ echo can not excute as root
 exit
 fi
 
-if [ -z "$*" ]
-then
+print_help(){
 		cat << EOF
 +--------------------------------------------------------------
 options are:
 a: all, recomand use -d:dmefault
-d: default = basic + vim + zsh + tmux 
+d: default = basic + vim + zsh + tmux + samba
 b: basic
 v: vim support
-s: add ss and tsock support
-h: host support
+s: samba support
+f: fq // add ss and tsock support
+#h: host support  // removed
 z: zsh and oh my zsh support
 # put zsh at end, cause the sh -c will end this script
 t: tmux
@@ -24,9 +24,16 @@ p: python and pip app(bypy markdown) support
 m: misc support // all others
 
 notice:
-after zsh install, you will need manually excute ln -sf ~/workspace/github/config/zshrc ~/.zshrc 
+1. after zsh install, you will need manually excute ln -sf ~/workspace/github/config/zshrc ~/.zshrc 
+2. after tmux configured, you will need to [prefix + I] to install all the tmux plugins
 +--------------------------------------------------------------+
 EOF
+
+}
+
+if [ -z "$*" ]
+then
+print_help
 exit
 fi
 
@@ -38,24 +45,7 @@ while getopts "adbvsthzm" optname
   do
     case "$optname" in
       "h")
-		cat << EOF
-+--------------------------------------------------------------
-options are:
-a: all, recomand use -d:dmefault
-d: default = basic + vim + zsh + tmux 
-b: basic
-v: vim support
-s: samba support
-f: fq // add ss and tsock support
-#h: host support  // removed
-z: zsh and oh my zsh support
-t: tmux
-# tmux plugins manager(tpm) need to be placed under "run '~/.tmux/plugins/tpm/tpm'"
-# and then [prefix + I] to install all plugins in .tmux.conf
-p: python and pip app(bypy markdown) support
-m: misc support // all others
-+--------------------------------------------------------------+
-EOF
+		print_help
 		exit
         ;;
       "a")
