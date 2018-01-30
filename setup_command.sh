@@ -22,6 +22,9 @@ z: zsh and oh my zsh support
 t: tmux
 p: python and pip app(bypy markdown) support
 m: misc support // all others
+
+notice:
+after zsh install, you will need manually excute ln -sf ~/workspace/github/config/zshrc ~/.zshrc 
 +--------------------------------------------------------------+
 EOF
 exit
@@ -126,7 +129,7 @@ fi
 sudo apt-get update
 
 # fix update error in U16
-sudo apt-get purge libappstream3
+sudo apt-get purge -y libappstream3
 
 sudo apt-get update 
 
@@ -151,6 +154,7 @@ sudo apt-get install -y tomcat8
 sudo apt-get install -y openjdk-8-jdk
 sudo apt-get install -y openjdk-9-jdk
 sudo apt-get install -y libnl-3-dev libnl-genl-3-dev
+sudo apt-get install -y zip
 fi
 
 if [ -n "$SS_SUPPORT$ALL" ]
@@ -285,7 +289,7 @@ if [ -n "$MISC_SUPPORT$ALL" ]
 then
 
 # for android build server
-sudo apt-get install -y bc bison build-essential curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
+sudo apt-get install -y bc bison flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zlib1g-dev
 
 # for audit2allow
 sudo apt-get install -y policycoreutils
