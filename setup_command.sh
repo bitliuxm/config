@@ -181,7 +181,8 @@ git clone https://github.com/bitliuxm/bash_script.git ~/workspace/github/bash_sc
 git clone https://github.com/bitliuxm/config.git ~/workspace/github/config
 git clone https://github.com/powerline/fonts.git ~/workspace/github/fonts
 ~/workspace/github/fonts/install.sh 
-# can not use git protocol until the ssh_pub is set in github.com
+
+## can not use git protocol until the ssh_pub is set in github.com
 #git clone git@github.com:bitliuxm/bash_script.git ~/workspace/github/bash_script
 #git clone git@github.com:bitliuxm/config.git ~/workspace/github/config
 #git clone git@github.com:powerline/fonts.git ~/workspace/github/fonts
@@ -226,7 +227,7 @@ fi
 
 if [ -n "$SAMBA_SUPPORT$ALL" ]
 then
-sudo apt-get install -y samba --fix-missing
+sudo apt-get install -y samba
 sudo apt-get install -y smbclient
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.default
 
