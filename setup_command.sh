@@ -188,6 +188,7 @@ git clone https://github.com/powerline/fonts.git ~/workspace/github/fonts
 #git clone git@github.com:powerline/fonts.git ~/workspace/github/fonts
 
 git clone https://github.com/git/git.git ~/workspace/github/git
+ln -sf /home/bit/workspace/github/git/git-p4.py /home/bit/bin/git-p4
 
 cd ~/.ssh
 key-keygen
