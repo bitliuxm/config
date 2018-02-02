@@ -18,7 +18,7 @@ s: samba support
 f: fq // add ss and tsock support
 #h: host support  // removed
 z: zsh and oh my zsh support
-# put zsh at end, cause the sh -c will end this script
+# put zsh at end, cause the env zsh may end this script (not test after add sed )
 t: tmux
 p: python and pip app(bypy markdown) support
 m: misc support // all others
@@ -320,7 +320,7 @@ sudo pip install bypy
 #sudo pip install Pygments
 fi
 
-# put zsh at end, cause the sh -c will end this script
+# put zsh at end, cause the env zsh may end this script(not tested)
 if [ -n "$ZSH_OH_SUPPORT$ALL" ]
 then
 sudo apt-get install -y zsh
@@ -330,7 +330,9 @@ chsh -s /bin/zsh
 ln -sf ~/workspace/github/config/zshrc ~/.zshrc
 
 # oh my zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-## shell will end here
+#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# remove env zsh to avoid leave the script
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed  '/env zsh/d')"
+
 fi
 
