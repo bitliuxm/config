@@ -196,9 +196,10 @@ touch authorized_keys
 touch config
 cd - 
 
+# usage of git is not recommanded due to GFW
 # change to git protocol
-sed -i 's_https://github.com/bitliuxm/config.git_git@github.com:bitliuxm/config.git_g' ~/workspace/github/config/.git/config
-sed -i 's_https://github.com/bitliuxm/bash\_script.git_git@github.com:bitliuxm/bash\_script.git_g' ~/workspace/github/bash_script/.git/config
+#sed -i 's_https://github.com/bitliuxm/config.git_git@github.com:bitliuxm/config.git_g' ~/workspace/github/config/.git/config
+#sed -i 's_https://github.com/bitliuxm/bash\_script.git_git@github.com:bitliuxm/bash\_script.git_g' ~/workspace/github/bash_script/.git/config
 
 # make ln for all script
 mkdir -p ~/bin
