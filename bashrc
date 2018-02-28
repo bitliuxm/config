@@ -1,6 +1,7 @@
 export PATH="/home/bit/workspace/bg5:$HOME/bin:$PATH"
 export EDITOR="/usr/bin/vim"
 export CRON_LOG="/home/bit/cron.log"
+ulimit -c unlimited
 #export PATH="$HOME/bash2bin:$PATH"
 #export PS1="\n\u@\h:\w \$(vcprompt -f '%b%m%u')\n>"
 
