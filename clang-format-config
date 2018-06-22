@@ -80,3 +80,9 @@ ReflowComments: true
 
 ## 最大空的行数
 #MaxEmptyLinesToKeep: 1
+
+# sort includes
+SortIncludes: false
+
+# backslashes align option
+AlignEscapedNewlinesLeft: true

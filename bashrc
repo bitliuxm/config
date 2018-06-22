@@ -1,6 +1,7 @@
 export PATH="/home/bit/workspace/bg5:$HOME/bin:$PATH"
 export EDITOR="/usr/bin/vim"
 export CRON_LOG="/home/bit/cron.log"
+ulimit -c unlimited
 #export PATH="$HOME/bash2bin:$PATH"
 #export PS1="\n\u@\h:\w \$(vcprompt -f '%b%m%u')\n>"
 
@@ -65,6 +66,8 @@ alias slashsed='slash_fun(){ set -x ; echo -E "$*" | sed -e '"'"'s/\\/\//g'"'"' 
 
 #alias tmux='alwaysd(){ set -x ; if [ "attach" = "$1" ]; then options = "$*" ; options2 = cat ${options} | sed "s/tmux attach/tmux attach -d/g" ; echo "$opetions2" ; fi ; set +x } ; alwaysd'
 #alias tmux='alwaysd(){ set -x ; if [ "attach" = "$1" ]; then para="$*" ; echo "$para" ; para2=`echo $para | sed "s/attach/attach -d/g"` ; tmux $para2 ; fi ; set +x } ; alwaysd'
+
+export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx2g"
 
 # for local configure load
 if [ -e /home/bit/.bashrc_local ]
